@@ -3,8 +3,8 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Inter } from 'next/font/google'
+import { useState, useEffect } from 'react'
 import { useTheme } from "@/lib/theme-context"
-import { useState } from 'react'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -13,6 +13,7 @@ const inter = Inter({
 
 export default function ContactPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const { theme, toggleTheme } = useTheme()
   const [formData, setFormData] = useState({
     name: '',
@@ -33,6 +34,10 @@ export default function ContactPage() {
       [e.target.name]: e.target.value
     })
   }
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <div className={`min-h-screen bg-[#FEFCF8] dark:bg-[#0F1419] text-[#2D5A27] dark:text-[#E8F5E8] transition-colors duration-300 ${inter.className}`}>
@@ -128,7 +133,7 @@ export default function ContactPage() {
       </header>
 
       {/* Mobile Navigation Menu */}
-      {isMobileMenuOpen && (
+      {mounted && isMobileMenuOpen && (
         <div className="lg:hidden fixed top-16 md:top-20 left-0 right-0 z-40 bg-gradient-to-r from-white/95 via-white/90 to-white/95 dark:from-[#0F1419]/95 dark:via-[#0F1419]/90 dark:to-[#0F1419]/95 backdrop-blur-md border-t border-white/20 dark:border-[#2A3441]/30 shadow-lg shadow-black/10 dark:shadow-black/30 mobile-menu-enter">
           <nav className="px-4 py-4 space-y-4" role="navigation" aria-label="Mobile navigation">
             <Link
