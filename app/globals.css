@@ -2,14 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Critical CSS for above-the-fold content */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Performance optimizations */
+@layer utilities {
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
+  }
+  
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Dark mode scrollbar */
+  .dark ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .dark ::-webkit-scrollbar-track {
+    background: #1A2332;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb {
+    background: #2A3441;
+    border-radius: 4px;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #3A4451;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
   
-  .bg-dotted-grid {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 24px 24px;
+  /* Dark mode scrollbar */
+  .dark ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .dark ::-webkit-scrollbar-track {
+    background: #1A2332;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb {
+    background: #2A3441;
+    border-radius: 4px;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #3A4451;
   }
 }
 
