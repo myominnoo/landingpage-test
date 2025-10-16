@@ -39,10 +39,8 @@ export default function PricingPage() {
           </div>
         </Link>
 
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-          <Link href="/" className="text-[#666666] dark:text-[#A0A0A0] hover:text-[#2D5A27] dark:hover:text-[#E8F5E8] transition-colors">
-            Home
-          </Link>
           <Link href="/pricing" className="text-[#2D5A27] dark:text-[#E8F5E8] font-medium">
             Pricing
           </Link>
@@ -119,13 +117,6 @@ export default function PricingPage() {
       {mounted && isMobileMenuOpen && (
         <div className="lg:hidden fixed top-16 md:top-20 left-0 right-0 z-40 bg-gradient-to-r from-white/95 via-white/90 to-white/95 dark:from-[#0F1419]/95 dark:via-[#0F1419]/90 dark:to-[#0F1419]/95 backdrop-blur-md border-t border-white/20 dark:border-[#2A3441]/30 shadow-lg shadow-black/10 dark:shadow-black/30 mobile-menu-enter">
           <nav className="px-4 py-4 space-y-4" role="navigation" aria-label="Mobile navigation">
-            <Link
-              href="/"
-              className="block text-[#666666] dark:text-[#A0A0A0] hover:text-[#2D5A27] dark:hover:text-[#E8F5E8] transition-colors py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
             <Link
               href="/pricing"
               className="block text-[#2D5A27] dark:text-[#E8F5E8] font-medium py-2"
